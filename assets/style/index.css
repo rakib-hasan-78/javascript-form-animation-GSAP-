@@ -29,7 +29,7 @@
 
 body{
     font-family: var(--global-font);
-    background: linear-gradient(45deg , #cdcdcd, #cdedbc);
+    background: linear-gradient(95deg , #cfc8c8, #cdedbc);
 }
 h1{
     font-weight: var(--font-weight-bolder);
