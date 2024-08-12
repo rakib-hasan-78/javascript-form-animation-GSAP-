@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --global-font:"Poppins", sans-serif;
+    --font-weight-basic:100;
+    --font-weight-primary:200;
+    --font-weight-intermediate:300;
+    --font-weight-advance:400;
+    --font-weight-medium:500;
+    --font-weight-semibold:600;
+    --font-weight-bold:700;
+    --font-weight-bold:800;
+    --font-weight-bolder:900;
+    --font-size-primary:1rem;
+    --font-size-basic:1.3rem;
+    --font-size-secondary:1.4rem;
+    --font-size-advance:1.5rem;
+    --font-size-large:2rem;
+    --font-size-large-basic:2.25rem;
+    --font-size-large-advance:2.5rem;
+    --font-size-larger:3rem;
+}
+
+body{
+    font-family: var(--global-font);
+    background: linear-gradient(45deg , #cdcdcd, #cdedbc);
+}
+h1{
+    font-weight: var(--font-weight-bolder);
+    font-size: var(--font-size-larger);
+}
