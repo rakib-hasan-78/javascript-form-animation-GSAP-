@@ -18,20 +18,98 @@
     --font-weight-bold:800;
     --font-weight-bolder:900;
     --font-size-primary:1rem;
-    --font-size-basic:1.3rem;
+    --font-size-basic:1.2rem;
     --font-size-secondary:1.4rem;
     --font-size-advance:1.5rem;
     --font-size-large:2rem;
     --font-size-large-basic:2.25rem;
     --font-size-large-advance:2.5rem;
     --font-size-larger:3rem;
+    --font-size-small:.7rem;
 }
 
 body{
     font-family: var(--global-font);
-    background: linear-gradient(95deg , #cfc8c8, #cdedbc);
+    background: linear-gradient(95deg , #6190ed, #cdedbc);
 }
 h1{
     font-weight: var(--font-weight-bolder);
     font-size: var(--font-size-larger);
+}
+.container h2{
+    font-size: var(--font-size-advance);
+    font-weight: var(--font-weight-bold);
+    color: #6391e8;
+}.container p{
+    font-size: var(--font-size-basic);
+    font-weight: var(--font-weight-primary);
+}
+.form-custom{
+    /* background: linear-gradient(195deg , #41dd8f, #54dd99); */
+    background: white;
+    padding: 2rem 5rem;
+}
+
+.input{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    border: none;
+    background: transparent;
+}
+.input-container{
+    position: relative;
+
+}
+.input-container p{
+    font-size: var(--font-size-small);
+}
+.input-placeholder {
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+    padding: 0.3rem 0rem;
+    opacity: .7;
+}
+.line-svg{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+}
+.promo-container {
+    display: flex;
+    align-items: center; /* Center align items */
+    position: relative;
+}
+
+.checkbox {
+    opacity: 1;
+    cursor: pointer;
+    z-index: 3; /* Ensure checkbox is above other elements */
+    pointer-events: all; /* Make sure it's clickable */
+}
+
+.promotions {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-left: 0.5rem; /* Add some space between checkbox and text */
+}
+
+.checkbox-container {
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 3px;
+}
+
+.checkmark,
+.checkbox {
+    position: absolute;
+    top: 0; /* Adjust to position correctly */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid red !important;
 }
