@@ -40,14 +40,34 @@ form.addEventListener('click', (e) => {
     containers.forEach((container) => {
         const input = container.querySelector('.input');
         const line = container.querySelector('.elastic-line');
-        const placeholder = container.querySelector('.input-placeholder');
 
         if (document.activeElement!==input) {
             if (!input.value) {
                 
-                tl.to(placeholder,{y:0,left:0, scale:1, duration:.3,  ease:"power3.easeOut"})
+                tl.to(container.querySelector('.input-placeholder'),{y:0,left:0, scale:1, duration:.3,  ease:"power3.easeOut"},'<35%')
             }
         }
 
     })
+});
+
+// checkbox
+const checkbox = document.querySelector('.checkbox');
+const tickMarkPath = document.querySelector('.tick-mark path');
+const pathLength = tickMarkPath.getTotalLength();
+
+gsap.set(tickMarkPath , {strokeDashoffset:pathLength, strokeDasharray:pathLength})
+
+checkbox.addEventListener('click', () => {
+    if (checkbox.checked) {
+        tl.to('.checkbox-fill', {top:'0%'});
+        tl.fromTo(tickMarkPath, {strokeDashoffset:pathLength}, {strokeDashoffset:0},"<50%")
+        tl.to('.promotions', {color:'#6190ed'},'<20%')
+    } else{
+        tl.to('.checkbox-fill', {top:'100%'});
+
+        tl.to('.promotions', {color:'#c5c5c5'}, '<')
+    }
 })
+
+

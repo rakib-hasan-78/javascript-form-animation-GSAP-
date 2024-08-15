@@ -136,11 +136,11 @@ h1{
 }
 .tick-mark{
     position: absolute;
-    top: 45%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -60%) scale(.78);
-    -webkit-transform: translate(-50%, -60%) scale(.78);
-    -moz-transform: translate(-50%, -60%) scale(.78);
-    -ms-transform: translate(-50%, -60%) scale(.78);
-    -o-transform: translate(-50%, -60%) scale(.78);
+    transform: translate(-50%, -50%) scale(.5);
+    -webkit-transform: translate(-50%, -50%) scale(.5);
+    -moz-transform: translate(-50%, -50%) scale(.5);
+    -ms-transform: translate(-50%, -50%) scale(.5);
+    -o-transform: translate(-50%, -50%) scale(.5);
 }
