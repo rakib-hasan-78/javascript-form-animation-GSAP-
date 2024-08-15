@@ -16,17 +16,38 @@ const tl = gsap.timeline({defaults:{ duration:.75}});
 const start = "M0 0.5C0 0.5 13.5 0.5 149.5 0.5C285.5 0.5 300 0.5 300 0.5";
 const end = "M1 0.5C1 0.5 26.5 11 149 11C271.5 11 302.5 0.5 302.5 0.5" ;
 
+
+
+
 containers.forEach((container) => {
     const input = container.querySelector('.input');
     const line = container.querySelector('.elastic-line');
     const placeholder = container.querySelector('.input-placeholder');
     
-    input.addEventListener('click', () => {
+    input.addEventListener('focus', () => {
         if (!input.value) {
-            tl.fromTo(line, {attr: {d:start}}, {attr:{d:end}, ease: "power2.out"})
+            tl.fromTo(line, {attr: {d:start}}, {attr:{d:end}, ease: "power2.out"});
+            tl.to(line, {attr:{d:start}, ease:'elastic.out(3,.5)'},'<50%');
+            tl.to(placeholder, {y:-15, left:0, scale:.8 ,duration:.5, ease:"power3.easeOut"},'<15%');
         }
-    })
+    });
 })
 
 
 
+form.addEventListener('click', (e) => {
+
+    containers.forEach((container) => {
+        const input = container.querySelector('.input');
+        const line = container.querySelector('.elastic-line');
+        const placeholder = container.querySelector('.input-placeholder');
+
+        if (document.activeElement!==input) {
+            if (!input.value) {
+                
+                tl.to(placeholder,{y:0,left:0, scale:1, duration:.3,  ease:"power3.easeOut"})
+            }
+        }
+
+    })
+})

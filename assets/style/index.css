@@ -58,6 +58,9 @@ h1{
     border: none;
     background: transparent;
     outline: none;
+    font-size: var(--font-size-small);
+    color: rgba(0,0,0,0.6);
+    font-weight: var(--font-weight-advance);
 }
 .input-container{
     position: relative;
@@ -72,6 +75,9 @@ h1{
     pointer-events: none;
     padding: 0.3rem 0rem;
     opacity: .7;
+    transform-origin: left;
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-advance);
 }
 .line-svg{
     position: absolute;
