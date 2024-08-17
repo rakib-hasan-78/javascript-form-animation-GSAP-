@@ -1,4 +1,8 @@
+import colorize from './colorize.js';
+import emailRegex from './emailregex.js';
 import textAnimation from './textanimation.js';
+
+
 // textAnimation ---->
 textAnimation('.title-word-two');
 textAnimation('.title-word-three');
@@ -30,9 +34,9 @@ containers.forEach((container) => {
             tl.to(line, {attr:{d:start}, ease:'elastic.out(3,.5)'},'<50%');
             tl.to(placeholder, {y:-15, left:0, scale:.8 ,duration:.5, ease:"power3.easeOut"},'<15%');
         }
+
     });
 })
-
 
 
 form.addEventListener('click', (e) => {
@@ -40,6 +44,7 @@ form.addEventListener('click', (e) => {
     containers.forEach((container) => {
         const input = container.querySelector('.input');
         const line = container.querySelector('.elastic-line');
+        const placeholder = container.querySelector('.input-placeholder');
 
         if (document.activeElement!==input) {
             if (!input.value) {
@@ -47,7 +52,31 @@ form.addEventListener('click', (e) => {
                 tl.to(container.querySelector('.input-placeholder'),{y:0,left:0, scale:1, duration:.3,  ease:"power3.easeOut"},'<35%')
             }
         }
-
+        input.addEventListener('input', (e) => {
+            // name validation
+            if (e.target.type==='text') {
+                if (e.target.value.length > 2) {
+                    colorize('green', line, placeholder);
+                } else if (e.target.value === '') {
+                    colorize('rgb(175, 172, 172)', line, placeholder);
+                } else {
+                    colorize('red', line, placeholder);
+                }
+            }
+            // email validation--->
+            if (e.target.type==='email') {
+                let {isValid} = emailRegex(e.target.value);
+                if (isValid) {
+                    colorize('green',line, placeholder)
+                }
+                else if (e.target.value===''){
+                    colorize('rgb(175, 172, 172)', line, placeholder);
+                }
+                else{
+                    colorize('red', line, placeholder)
+                }
+            }
+        })
     })
 });
 
@@ -69,5 +98,3 @@ checkbox.addEventListener('click', () => {
         tl.to('.promotions', {color:'#c5c5c5'}, '<')
     }
 })
-
-
