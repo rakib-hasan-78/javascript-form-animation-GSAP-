@@ -1,5 +1,6 @@
 import colorize from './colorize.js';
 import emailRegex from './emailregex.js';
+import nameRegex from './nameregex.js';
 import textAnimation from './textanimation.js';
 
 
@@ -55,7 +56,8 @@ form.addEventListener('click', (e) => {
         input.addEventListener('input', (e) => {
             // name validation
             if (e.target.type==='text') {
-                if (e.target.value.length > 2) {
+                let {isValid} = nameRegex(e.target.value)
+                if (isValid) {
                     colorize('green', line, placeholder);
                 } else if (e.target.value === '') {
                     colorize('rgb(175, 172, 172)', line, placeholder);
