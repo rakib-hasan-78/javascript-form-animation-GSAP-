@@ -128,6 +128,44 @@ const formAnimation = () => {
                 tl.to('.promotions', {color:'#c5c5c5'}, '<')
             }
         })
+
+    // form submit
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let isValid = true;
+    
+        containers.forEach((container) => {
+            const input = container.querySelector('.input');
+            const line = container.querySelector('.elastic-line');
+            const placeholder = container.querySelector('.input-placeholder');
+    
+            if (input.type === 'text') {
+                let {isValid: nameValid} = nameRegex(input.value);
+                if (!nameValid) isValid = false;
+            }
+            if (input.type === 'email') {
+                let {isValid: emailValid} = emailRegex(input.value);
+                if (!emailValid) isValid = false;
+            }
+            if (input.type === 'tel') {
+                let {isValid: phoneValid} = phoneValidation(input.value);
+                if (!phoneValid) isValid = false;
+            }
+        });
+    
+        if (isValid) {
+
+    
+            let userData = {
+                name: form.querySelector('.input-name').value,
+                email: form.querySelector('.input-email').value,
+                phone: form.querySelector('.input-tel').value
+            };
+            console.log(JSON.stringify(userData));
+            form.reset();
+        } 
+    });
 }
 
 formAnimation();
@@ -135,6 +173,7 @@ formAnimation();
 // animatingCharacter function ---->
 animatingCharacter();
 
-// /^(?:\+?88)?01[3-9]\d{8}$
+
+
 
 

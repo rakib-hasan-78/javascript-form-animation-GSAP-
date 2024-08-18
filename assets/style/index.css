@@ -162,3 +162,21 @@ h1{
     -o-transform: scale(.8) translate(0% , 30%);
     transform-origin: bottom;
 }
+
+.submit-msg{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+.submit-msg p{
+    font-weight: var(--font-weight-bold);
+    font-size: var( --font-size-advance);
+    color: #6391e8;
+    pointer-events: none;
+    opacity: 0;
+}
