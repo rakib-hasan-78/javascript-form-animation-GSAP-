@@ -129,43 +129,60 @@ const formAnimation = () => {
             }
         })
 
-    // form submit
-
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', function(e) {
+        
+        const line = document.querySelectorAll('.elastic-line');
+        const placeholder = document.querySelectorAll('.input-placeholder');
         e.preventDefault();
         let isValid = true;
-    
+
         containers.forEach((container) => {
             const input = container.querySelector('.input');
-            const line = container.querySelector('.elastic-line');
-            const placeholder = container.querySelector('.input-placeholder');
-    
-            if (input.type === 'text') {
-                let {isValid: nameValid} = nameRegex(input.value);
+
+            if (input.type==='text') {
+                let {isValid:nameValid} = nameRegex(input.value);
                 if (!nameValid) isValid = false;
             }
-            if (input.type === 'email') {
-                let {isValid: emailValid} = emailRegex(input.value);
-                if (!emailValid) isValid = false;
+
+            if (input.type==='email') {
+                let {isValid:emailValid} = emailRegex(input.value);
+                if(!emailValid) isValid = false;
             }
-            if (input.type === 'tel') {
-                let {isValid: phoneValid} = phoneValidation(input.value);
-                if (!phoneValid) isValid = false;
+            if (input.type==='tel') {
+                let {isValid:phoneValid} = phoneValidation(input.value);
+                if(!phoneValid) isValid = false;
             }
         });
-    
+
         if (isValid) {
 
+           
+
+                tl.to('.row-custom', {y:30, opacity:0});
+                tl.to('.form-custom', {scale:0.8},'<');
+                tl.fromTo('.custom-p', {opacity:0, y:30}, {y:0, opacity:1, ease: "elastic.inOut(2,0.3)"});
+                gsap.set('#hand',{tranformOrigin:'left'} )
+                tl.fromTo('#hand',{rotation:0, y:0}, {rotation:-10, y:2, duration:2, yoyo:true, repeat:1 ,delay:1, ease: "elastic.in(3,0.3)"});
+                colorize('rgb(175, 172, 172)', line, placeholder);
+                tl.to(document.querySelectorAll('.input-placeholder'),{y:0,left:0, scale:1, duration:.3,  ease:"power3.easeOut"})
     
-            let userData = {
-                name: form.querySelector('.input-name').value,
-                email: form.querySelector('.input-email').value,
-                phone: form.querySelector('.input-tel').value
-            };
-            console.log(JSON.stringify(userData));
-            form.reset();
-        } 
-    });
+                let formData = {
+                    Name: this.querySelector('.input-name').value,
+                    Email:this.querySelector('.input-email').value,
+                    Phone:this.querySelector('.input-tel').value
+                };
+                console.log(JSON.stringify(formData));
+
+                this.reset();   
+
+                setTimeout(() => {
+                tl.to('.custom-p', {y:30, opacity:0});
+                tl.to('.row-custom', {y:0, opacity:1});
+                tl.to('.form-custom', {scale:1},'<');
+
+                },[3000])
+        }
+    })
 }
 
 formAnimation();
