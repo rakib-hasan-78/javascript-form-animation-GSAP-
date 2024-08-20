@@ -123,16 +123,17 @@ const formAnimation = () => {
         checkbox.addEventListener('click', () => {
             if (checkbox.checked) {
                 tl.to('.checkbox-fill', {top:'0%'});
-                tl.fromTo(tickMarkPath, {strokeDashoffset:pathLength}, {strokeDashoffset:0},"<50%")
+                tl.fromTo(tickMarkPath, {strokeDashoffset:pathLength, opacity:0}, {strokeDashoffset:2, opacity:1},"<50%")
                 tl.to('.promotions', {color:'#6190ed'},'<20%')
             } else{
+                tl.to(tickMarkPath , {stroke:"#f6f6f6"})
                 tl.to('.checkbox-fill', {top:'100%'});
-    
                 tl.to('.promotions', {color:'#c5c5c5'}, '<')
             }
             console.log('clicked')
         })
 
+        // form submit
     form.addEventListener('submit', function(e) {
         
         const line = document.querySelectorAll('.elastic-line');
@@ -158,34 +159,42 @@ const formAnimation = () => {
             }
         });
 
+        // if the data is valid
+
         if (isValid) {
 
            
 
                 tl.to('.row-custom', {y:30, opacity:0});
                 tl.to('.form-custom', {scale:0.8},'<');
+                tl.to('.submit-msg', {visibility:"visible"})
+
                 tl.fromTo('.custom-p', {opacity:0, y:30}, {y:0, opacity:1, ease: "elastic.inOut(2,0.3)"});
                 gsap.set('#hand',{tranformOrigin:'left'});
                 tl.fromTo('#hand',{rotation:0, y:0}, {rotation:-10, y:2, duration:2, yoyo:true, repeat:1 ,delay:1, ease: "elastic.in(3,0.3)"});
                 colorize('rgb(175, 172, 172)', line, placeholder);
                 tl.to(('.input-placeholder'),{y:0,left:0, scale:1, duration:.3,  ease:"power3.easeOut"});
-    
+                // grabbing data from valid submission
                 let formData = {
                     Name: this.querySelector('.input-name').value,
                     Email:this.querySelector('.input-email').value,
                     Phone:this.querySelector('.input-tel').value
                 };
-                console.log(JSON.stringify(formData));
+                console.log(JSON.stringify(formData));    
+
+                // resetting the form--->
 
                 this.reset();   
-                gsap.set(tickMarkPath , {strokeDashoffset:pathLength})
+                gsap.set(tickMarkPath , {strokeDashoffset:pathLength, stroke:"#f6f6f6", opacity:0})
 
                 
-                    tl.to('.checkbox-fill', {top:'100%'});
+                    tl.to('.checkbox-fill', {top:'100%', width:"100%", height:"100%",position:"absolute"});
                     
                     tl.to('.promotions', {color:'#c5c5c5'})
           
                 setTimeout(() => {
+
+                tl.to('.submit-msg', {visibility:"hidden"})
                 tl.to('.custom-p', {y:30, opacity:0});
                 tl.to('.row-custom', {y:0, opacity:1});
                 tl.to('.form-custom', {scale:1},'<');
