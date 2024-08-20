@@ -28,6 +28,17 @@
     --font-size-small:.7rem;
 }
 
+.text-500{
+    font-weight: var( --font-weight-medium);
+}
+.text-600{
+    font-weight: var(--font-weight-semibold);
+}
+.text-700{
+    font-weight: var(--font-weight-bold);
+}
+
+
 body{
     font-family: var(--global-font);
     background: linear-gradient(95deg , #6190ed, #cdedbc);
@@ -113,17 +124,16 @@ h1{
     border-radius: 3px;
     border: 2px solid #c5c5c5;
     overflow: hidden;
+    z-index: 1;
 } 
-
-.checkmark,
+.check-mark,
 .checkbox {
     position: absolute;
     top: 0; /* Adjust to position correctly */
     left: 0;
     width: 100%;
     height: 100%;
-    border: 2px solid red;
-    z-index:2;
+    z-index:10;
 }
 .button-container{
     display: flex;

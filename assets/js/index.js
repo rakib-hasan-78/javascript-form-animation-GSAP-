@@ -1,5 +1,8 @@
 import colorize from './colorize.js';
 import emailRegex from './emailregex.js';
+import footer from './footer.js';
+import footerText from './footertext.js';
+import footerTimeLine from './footertimeline.js';
 import animatingCharacter from './formanimation.js';
 import nameRegex from './nameregex.js';
 import phoneValidation from './phoneregex.js';
@@ -127,6 +130,7 @@ const formAnimation = () => {
     
                 tl.to('.promotions', {color:'#c5c5c5'}, '<')
             }
+            console.log('clicked')
         })
 
     form.addEventListener('submit', function(e) {
@@ -161,10 +165,10 @@ const formAnimation = () => {
                 tl.to('.row-custom', {y:30, opacity:0});
                 tl.to('.form-custom', {scale:0.8},'<');
                 tl.fromTo('.custom-p', {opacity:0, y:30}, {y:0, opacity:1, ease: "elastic.inOut(2,0.3)"});
-                gsap.set('#hand',{tranformOrigin:'left'} )
+                gsap.set('#hand',{tranformOrigin:'left'});
                 tl.fromTo('#hand',{rotation:0, y:0}, {rotation:-10, y:2, duration:2, yoyo:true, repeat:1 ,delay:1, ease: "elastic.in(3,0.3)"});
                 colorize('rgb(175, 172, 172)', line, placeholder);
-                tl.to(document.querySelectorAll('.input-placeholder'),{y:0,left:0, scale:1, duration:.3,  ease:"power3.easeOut"})
+                tl.to(('.input-placeholder'),{y:0,left:0, scale:1, duration:.3,  ease:"power3.easeOut"});
     
                 let formData = {
                     Name: this.querySelector('.input-name').value,
@@ -174,7 +178,13 @@ const formAnimation = () => {
                 console.log(JSON.stringify(formData));
 
                 this.reset();   
+                gsap.set(tickMarkPath , {strokeDashoffset:pathLength})
 
+                
+                    tl.to('.checkbox-fill', {top:'100%'});
+                    
+                    tl.to('.promotions', {color:'#c5c5c5'})
+          
                 setTimeout(() => {
                 tl.to('.custom-p', {y:30, opacity:0});
                 tl.to('.row-custom', {y:0, opacity:1});
@@ -186,11 +196,15 @@ const formAnimation = () => {
 }
 
 formAnimation();
-
 // animatingCharacter function ---->
 animatingCharacter();
+// footer 
+footer();
+// footer text-customize for animation-->
+footerText();
+// footer timeline---->
+footerTimeLine();
 
 
 
-
-
+    
