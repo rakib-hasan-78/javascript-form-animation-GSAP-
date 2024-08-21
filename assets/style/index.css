@@ -26,6 +26,7 @@
     --font-size-large-advance:2.5rem;
     --font-size-larger:3rem;
     --font-size-small:.7rem;
+    --font-size-sm-small:.8rem;
 }
 
 .text-500{
@@ -203,8 +204,28 @@ body{
     .font-xsm-bolder{
         font-weight: var(--font-weight-bolder);
     }
+    .w-xsm-100{
+        width: 100%;
+    }
+    #character{
+        left:35%;
+        transform: scale(.5) translate(-50% , 30%);
+        -webkit-transform: scale(.5) translate(-50% , 30%);
+        -moz-transform: scale(.5) translate(-50% , 30%);
+        -ms-transform: scale(.5) translate(-50% , 30%);
+        -o-transform: scale(.5) translate(-50% , 30%);
+    }
+    .pg-sm-size{
+        font-size: var(--font-size-sm-small);
+    }
+    .mb-xsm-5 {
+        margin-bottom: 3rem!important;
+    }
+    .pb-xsm-3{
+        padding-bottom: 1rem;
+    }
 } 
-@media (min-width: 575px) and (max-width: 768px) {
+@media (min-width: 576px) and (max-width: 768px) {
 
     .pg-md-size{
         font-size: var(--font-size-primary) !important;
@@ -217,7 +238,7 @@ body{
         -moz-transform: scale(.5) translate(-50% , 30%);
         -ms-transform: scale(.5) translate(-50% , 30%);
         -o-transform: scale(.5) translate(-50% , 30%);
-}
+    }
 
 } 
 @media (min-width: 576px) {
@@ -227,6 +248,9 @@ body{
     .font-sm-bolder{
         font-weight: var(--font-weight-bolder);
     }
+    .w-sm-100{
+        width: 100%;
+    }
 } 
 @media (min-width: 768px) {
     .text-size-md-larger {
@@ -235,6 +259,9 @@ body{
     .font-md-bolder{
         font-weight: var(--font-weight-bolder);
     }
+    .w-md-100{
+        width: 100%;
+    }
 } 
 @media (min-width: 992px) {
     .text-size-lg-larger {
@@ -242,6 +269,9 @@ body{
     }
     .font-lg-bolder{
         font-weight: var(--font-weight-bolder);
+    }
+    .w-lg-50{
+        width: 50%;
     }
 } 
 
@@ -252,6 +282,9 @@ body{
     .font-xl-bolder{
         font-weight: var(--font-weight-bolder);
     }
+    .w-xl-25{
+        width: 50%;
+    }
 } 
 
 @media (min-width: 1400px) {
@@ -260,6 +293,9 @@ body{
     }
     .font-xxl-bolder{
         font-weight: var(--font-weight-bolder);
+    }
+    .w-xxl-25{
+        width: 50%;
     }
 }
 
