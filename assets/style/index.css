@@ -14,7 +14,7 @@
     --font-weight-advance:400;
     --font-weight-medium:500;
     --font-weight-semibold:600;
-    --font-weight-bold:700;
+    --font-weight-minibold:700;
     --font-weight-bold:800;
     --font-weight-bolder:900;
     --font-size-primary:1rem;
@@ -38,15 +38,14 @@
     font-weight: var(--font-weight-bold);
 }
 
-
 body{
     font-family: var(--global-font);
     background: linear-gradient(95deg , #6190ed, #cdedbc);
 }
-h1{
+/* h1{
     font-weight: var(--font-weight-bolder);
     font-size: var(--font-size-larger);
-}
+} */
 .container h2{
     font-size: var(--font-size-advance);
     font-weight: var(--font-weight-bold);
@@ -55,6 +54,7 @@ h1{
     font-size: var(--font-size-basic);
     font-weight: var(--font-weight-primary);
 }
+
 .form-custom{
     /* background: linear-gradient(195deg , #41dd8f, #54dd99); */
     background: white;
@@ -190,3 +190,79 @@ h1{
     pointer-events: none;
     opacity: 0;
 }
+
+
+/* responsive */
+@media (min-width: 450px) and (max-width: 575px) {
+    .p-xsm-3 {
+        padding: 1rem!important;
+    }
+    .text-size-xsm-larger {
+        font-size: var(--font-size-basic);
+    }
+    .font-xsm-bolder{
+        font-weight: var(--font-weight-bolder);
+    }
+} 
+@media (min-width: 575px) and (max-width: 768px) {
+
+    .pg-md-size{
+        font-size: var(--font-size-primary) !important;
+    }
+
+    #character{
+        left:35%;
+        transform: scale(.5) translate(-50% , 30%);
+        -webkit-transform: scale(.5) translate(-50% , 30%);
+        -moz-transform: scale(.5) translate(-50% , 30%);
+        -ms-transform: scale(.5) translate(-50% , 30%);
+        -o-transform: scale(.5) translate(-50% , 30%);
+}
+
+} 
+@media (min-width: 576px) {
+    .text-size-sm-larger {
+        font-size: var(--font-size-advance);
+    }
+    .font-sm-bolder{
+        font-weight: var(--font-weight-bolder);
+    }
+} 
+@media (min-width: 768px) {
+    .text-size-md-larger {
+        font-size: var(--font-size-large);
+    }
+    .font-md-bolder{
+        font-weight: var(--font-weight-bolder);
+    }
+} 
+@media (min-width: 992px) {
+    .text-size-lg-larger {
+        font-size: var(--font-size-large);
+    }
+    .font-lg-bolder{
+        font-weight: var(--font-weight-bolder);
+    }
+} 
+
+@media (min-width: 1200px) {
+    .text-size-xl-larger {
+        font-size: var(--font-size-larger);
+    }
+    .font-xl-bolder{
+        font-weight: var(--font-weight-bolder);
+    }
+} 
+
+@media (min-width: 1400px) {
+    .text-size-xxl-larger {
+        font-size: var(--font-size-larger);
+    }
+    .font-xxl-bolder{
+        font-weight: var(--font-weight-bolder);
+    }
+}
+
+
+
+

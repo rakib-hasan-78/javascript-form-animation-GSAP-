@@ -118,7 +118,7 @@ const formAnimation = () => {
         const tickMarkPath = document.querySelector('.tick-mark path');
         const pathLength = tickMarkPath.getTotalLength();
     
-        gsap.set(tickMarkPath , {strokeDashoffset:pathLength, strokeDasharray:pathLength})
+        gsap.set(tickMarkPath , {strokeDashoffset:pathLength, strokeDasharray:pathLength, zIndex:0})
     
         checkbox.addEventListener('click', () => {
             if (checkbox.checked) {
@@ -185,7 +185,8 @@ const formAnimation = () => {
                 // resetting the form--->
 
                 this.reset();   
-                gsap.set(tickMarkPath , {strokeDashoffset:pathLength, stroke:"#f6f6f6", opacity:0})
+                gsap.set(tickMarkPath ,
+                     {strokeDashoffset:pathLength, stroke:"#f6f6f6", opacity:0, zIndex:-1})
 
                 
                     tl.to('.checkbox-fill', {top:'100%', width:"100%", height:"100%",position:"absolute"});
